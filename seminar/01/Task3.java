@@ -4,7 +4,7 @@ public class Task3 {
 
 	//Дан массив двоичных чисел, например [1,1,0,1,1,1], вывести максимальное количество подряд идущих 1.
 	public static void main(String[] args) {
-		System.out.print("\033[H\033[2J");  
+		System.out.print("\033[H\033[2J");	// Очистка консоли (работает в Windows, на остальных системах не проверял)
 		System.out.flush();
 
 		int[] arr = new int[] {1, 1, 0, 1, 1, 1};

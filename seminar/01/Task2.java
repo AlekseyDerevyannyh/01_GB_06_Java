@@ -10,7 +10,7 @@ public class Task2 {
 	//"Добрый вечер, <Имя>!", если время от 18:00 до 22:59;
 	//"Доброй ночи, <Имя>!", если время от 23:00 до 4:59
 	public static void main(String[] args) {
-		System.out.print("\033[H\033[2J");  
+		System.out.print("\033[H\033[2J");	// Очистка консоли (работает в Windows, на остальных системах не проверял)
 		System.out.flush();
 
 		Scanner iScanner = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class Task2 {
 
 		if (hour >= 5 && hour < 12)			System.out.println("Доброе утро, " + name);
 		else if (hour >= 12 && hour < 18)	System.out.println("Добрый день, " + name);
-		else if (hour > 18 && hour < 23)	System.out.println("Добрый вечер, " + name);
+		else if (hour >= 18 && hour < 23)	System.out.println("Добрый вечер, " + name);
 		else								System.out.println("Доброй ночи, " + name);
 	}
 }
