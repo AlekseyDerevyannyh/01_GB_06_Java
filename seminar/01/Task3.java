@@ -18,23 +18,10 @@ public class Task3 {
 		int result = 0;
 		int count = 0;
 		for (int i = 0; i < array.length; i ++) {
-			if (array[i] == 1) {
-				count ++;
-			} else {
-				if (count != 0) {
-					if (count > result) {
-						result = count;
-					}
-				}
-				count = 0;
-			}
-			if (i == array.length - 1) {
-				if (count != 0) {
-					if (count > result) {
-						result = count;
-					}
-				}
-			}
+			if (array[i] == 1)	count ++;
+			else				count = 0;
+
+			if (count > result)	result = count;
 		}
 		return result;
 	}
