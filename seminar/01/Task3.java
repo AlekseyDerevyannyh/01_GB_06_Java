@@ -17,9 +17,9 @@ public class Task3 {
 	public int count (int[] array) {
 		int result = 0;
 		int count = 0;
-		for (int i = 0; i < array.length; i ++) {
-			if (array[i] == 1)	count ++;
-			else				count = 0;
+		for (int item : array) {
+			if (item == 1)	count ++;
+			else			count = 0;
 
 			if (count > result)	result = count;
 		}
