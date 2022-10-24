@@ -5,6 +5,10 @@
 
 /tmp/*
 
+/seminar/03/target/
+/.idea
+*.iml
+
 # User-specific files
 
 *.rsuser
