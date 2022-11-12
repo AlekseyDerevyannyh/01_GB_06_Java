@@ -23,34 +23,36 @@ class HomeworkTest {
 
 	@Test
 	void sumSuccessful() {
-		Deque<Integer> inputDeque1 = new ArrayDeque<>(Arrays.asList(2, -1));
-		Deque<Integer> inputDeque2 = new ArrayDeque<>(Arrays.asList(4, 2));
+		Deque<Integer> inputDeque1 = new ArrayDeque<>(Arrays.asList(0, 0, 0, 2));
+		Deque<Integer> inputDeque2 = new ArrayDeque<>(Arrays.asList(0, 1, 0, -1));
 
-		Deque<Integer> expectedDeque = new ArrayDeque<>(Arrays.asList(2, 1));
+		Deque<Integer> expectedDeque = new ArrayDeque<>(Arrays.asList(0, 9, 9));
 		
 		Deque<Integer> actualDeque = (new Homework()).sum(inputDeque1, inputDeque2);
 
 		Assertions.assertIterableEquals(expectedDeque, actualDeque);
 	}
-	
+
 	@Test
-	void DequeToIntSuccessful() {
-		Deque<Integer> inputDeque = new ArrayDeque<>(Arrays.asList(2, -1));
+	void positiveSumSuccessful() {
+		Deque<Integer> inputDeque1 = new ArrayDeque<>(Arrays.asList(2, 2, 3));
+		Deque<Integer> inputDeque2 = new ArrayDeque<>(Arrays.asList(8, 1));
 
-		int expected = -12;
+		Deque<Integer> expectedDeque = new ArrayDeque<>(Arrays.asList(0, 4, 3));
 
-		int actual = (new Homework()).DequeToInt(inputDeque);
+		Deque<Integer> actualDeque = (new Homework()).positiveSum(inputDeque1, inputDeque2);
 
-		Assertions.assertEquals(expected, actual);
+		Assertions.assertIterableEquals(expectedDeque, actualDeque);
 	}
-	
+
 	@Test
-	void IntToDequeSuccessful() {
-		int input = -203;
+	void subtractionSuccessful() {
+		Deque<Integer> inputDeque1 = new ArrayDeque<>(Arrays.asList(8, 2, 3));
+		Deque<Integer> inputDeque2 = new ArrayDeque<>(Arrays.asList(1, 4, 5));
 
-		Deque<Integer> expectedDeque = new ArrayDeque<>(Arrays.asList(3, 0, -2));
+		Deque<Integer> expectedDeque = new ArrayDeque<>(Arrays.asList(3, 1, -2));
 
-		Deque<Integer> actualDeque = (new Homework()).IntToDeque(input);
+		Deque<Integer> actualDeque = (new Homework()).subtraction(inputDeque1, inputDeque2);
 
 		Assertions.assertIterableEquals(expectedDeque, actualDeque);
 	}
