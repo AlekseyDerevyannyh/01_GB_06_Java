@@ -9,10 +9,10 @@ public class Bottle extends Product {
     @Override
     public String toString() {
         return "Bottle{" +
-                "name=" + super.getName() +
-                ", cost=" + super.getCost() +
+                "name='" + super.getName() +
+                "', cost=" + super.getCost() +
                 ", volume=" + this.volume +
-                '}';
+                "}";
     }
 
     public Double getVolume() {

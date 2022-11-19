@@ -15,4 +15,8 @@ public class Machine {
         }
         throw new IllegalStateException("Product not found");
     }
+
+    public List<Product> getProducts() {
+        return this.products;
+    }
 }

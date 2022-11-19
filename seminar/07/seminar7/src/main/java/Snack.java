@@ -6,6 +6,15 @@ public class Snack extends Product {
         this.taste = taste;
     }
 
+    @Override
+    public String toString() {
+        return "Snack{" +
+                "name='" + super.getName() +
+                "', cost=" + super.getCost() +
+                ", taste='" + taste +
+                "'}";
+    }
+
     public String getTaste() {
         return taste;
     }

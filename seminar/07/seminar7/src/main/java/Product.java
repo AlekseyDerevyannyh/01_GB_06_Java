@@ -2,10 +2,6 @@ public class Product {
     private String name;
     private Double cost;
 
-    public Product () {
-
-    }
-
     public Product (String name, Double cost) {
         this.name = name;
         this.cost = cost;
@@ -14,9 +10,9 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + name + '\'' +
-                ", cost=" + cost +
-                '}';
+                "name='" + name +
+                "', cost=" + cost +
+                "}";
     }
 
     public void setName (String name) {
