@@ -3,14 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-/tmp/*
 *.class
+*.iml
 
-/seminar/03/target/
-/seminar/07/seminar7/.idea
-/seminar/07/seminar7/target
-/seminar/07/seminar7/src/main/resources
-/seminar/07/seminar7/src/main/webapp
-/seminar/08/SimpleProject/.idea
-/seminar/08/SimpleProject/target
-/seminar/08/SimpleProject/src/main/resources
+tmp/
+.idea/
+target/
+resources/
+webapp/
