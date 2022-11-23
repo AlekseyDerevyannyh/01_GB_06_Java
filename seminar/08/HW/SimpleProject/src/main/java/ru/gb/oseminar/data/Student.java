@@ -8,6 +8,16 @@ public class Student extends User {
         this.studentID = studentID;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + super.getFirstName() + '\'' +
+                ", lastName='" + super.getLastName() + '\'' +
+                ", patronymic='" + super.getPatronymic() + '\'' +
+                ", studentID=" + studentID +
+                '}';
+    }
+
     public Long getStudentID() {
         return studentID;
     }

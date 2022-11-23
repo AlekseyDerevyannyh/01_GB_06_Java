@@ -5,7 +5,11 @@ import ru.gb.oseminar.controller.Controller;
 public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        controller.createUser("Name", "LastName", "Patronymic");
+        controller.createTeacher("Aleksandr", "Aleksandrov", "Aleksandrovich");
+        controller.createStudent("Ivan", "Ivanov", "Ivanovich");
+        controller.createStudent("Petr", "Petrov", "Petrovich");
+        controller.createStudent("Vladislav", "Vladislavov", "Vladislavovich");
 
+        controller.createStudyGroup();
     }
 }

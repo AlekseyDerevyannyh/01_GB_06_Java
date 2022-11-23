@@ -1,6 +1,7 @@
 package ru.gb.oseminar.service;
 
 import ru.gb.oseminar.data.Student;
+import ru.gb.oseminar.data.Teacher;
 import ru.gb.oseminar.data.User;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class UserService implements DataService {
     }
 
     @Override
-    public void createUser(String firstName, String lastName, String patronymic) {
+    public void createStudent(String firstName, String lastName, String patronymic) {
         Long id = 0L;
         for (User user : this.users) {
             if (user instanceof Student) {
@@ -26,6 +27,18 @@ public class UserService implements DataService {
         this.users.add(new Student(firstName, lastName, patronymic, ++id));
     }
 
+    @Override
+    public void createTeacher(String firstName, String lastName, String patronymic) {
+        Long id = 0L;
+        for (User user : this.users) {
+            if (user instanceof Teacher) {
+                if (id < ((Teacher) user).getTeacherID()) {
+                    id = ((Teacher) user).getTeacherID();
+                }
+            }
+        }
+        this.users.add(new Teacher(firstName, lastName, patronymic, ++id));
+    }
 
     @Override
     public List<User> getAll() {
@@ -33,7 +46,7 @@ public class UserService implements DataService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteStudent(Long id) {
         for (User user : this.users) {
             if (user instanceof Student) {
                 if (id.equals(((Student) user).getStudentID())) {
@@ -43,4 +56,14 @@ public class UserService implements DataService {
         }
     }
 
+    @Override
+    public void deleteTeacher(Long id) {
+        for (User user : this.users) {
+            if (user instanceof Teacher) {
+                if (id.equals(((Teacher) user).getTeacherID())) {
+                    this.users.remove(user);
+                }
+            }
+        }
+    }
 }

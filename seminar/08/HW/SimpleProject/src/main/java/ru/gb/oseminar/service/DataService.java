@@ -5,10 +5,14 @@ import ru.gb.oseminar.data.User;
 import java.util.List;
 
 public interface DataService {
-    void createUser (String firstName, String lastName, String patronymic);
+    void createStudent(String firstName, String lastName, String patronymic);
 
-    List<User> getAll ();
+    void createTeacher(String firstName, String lastName, String patronymic);
 
-    void deleteUser(Long id);
+    List<User> getAll();
+
+    void deleteStudent(Long id);
+
+    void deleteTeacher(Long id);
 
 }
