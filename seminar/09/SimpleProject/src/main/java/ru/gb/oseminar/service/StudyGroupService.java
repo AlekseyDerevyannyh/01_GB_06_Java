@@ -16,5 +16,5 @@ public class StudyGroupService {
         studyGroupList.add(new StudyGroup(teacher, studentsList));
         return studyGroupList;
 
-    };
+    }
 }
