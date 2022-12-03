@@ -1,7 +1,6 @@
 package personal.views;
 
 import personal.controllers.UserController;
-import personal.exception.CommandException;
 import personal.model.User;
 
 import java.util.Scanner;
@@ -14,7 +13,7 @@ public class ViewUser {
         this.userController = userController;
     }
 
-    public void run(){
+    public void run() {
         Commands com = Commands.NONE;
 
         while (true) {
@@ -56,6 +55,7 @@ public class ViewUser {
                     String phone = prompt("Номер телефона: ");
                     String userID = prompt("Идентификатор пользователя: ");
                     userController.editUser(new User(userID, firstName, lastName, phone));
+                    break;
             }
         }
     }
