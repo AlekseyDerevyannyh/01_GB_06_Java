@@ -10,6 +10,11 @@ public class Rectangle extends Polygon {
         return super.sides[0] * super.sides[1];
     }
 
+    @Override
+    public Double perimeter() {
+        return super.perimeter() * 2;
+    }
+
     public Double getSide1() {
         return super.sides[0];
     }

@@ -3,8 +3,8 @@ package ru.gb.oseminar.data;
 public class Triangle extends Polygon {
     public Triangle(Double side1, Double side2, Double side3) {
         super(new Double[]{side1, side2, side3});
-//        if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side2) {
-//            throw new IllegalStateException("Unable to create a triangle");
+//        if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1) {
+//            throw new IllegalArgumentException("Unable to create a triangle");
 //        }
     }
 
