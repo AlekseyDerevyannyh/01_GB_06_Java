@@ -1,14 +1,14 @@
-package ru.gb.oseminar.model;
+package ru.gb.oseminar.service;
 
 import ru.gb.oseminar.data.Figure;
 import ru.gb.oseminar.data.ILengthable;
 import ru.gb.oseminar.data.IPerimeterable;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class FiguresRepository implements IRepository {
-    private Collection<Figure> figures;
+    private List<Figure> figures;
 
     public FiguresRepository() {
         this.figures = new ArrayList<>();
@@ -19,7 +19,7 @@ public class FiguresRepository implements IRepository {
         this.figures.add(figure);
     }
 
-    public Double allPerimeters() {
+    public Double getAllPerimeters() {
         Double perimeter = 0.0;
         for (Figure figure : this.figures) {
             if (figure instanceof IPerimeterable) {
@@ -29,7 +29,7 @@ public class FiguresRepository implements IRepository {
         return perimeter;
     }
 
-    public Double allLength() {
+    public Double getAllLength() {
         Double length = 0.0;
         for (Figure figure : this.figures) {
             if (figure instanceof ILengthable) {
@@ -39,11 +39,19 @@ public class FiguresRepository implements IRepository {
         return length;
     }
 
-    public Double allAreas() {
+    public Double getAllAreas() {
         Double area = 0.0;
         for (Figure figure : this.figures) {
             area += figure.area();
         }
         return area;
     }
+
+    public List<Figure> getFigures() {
+        return figures;
+    }
+
+//    public void setFigures(List<Figure> figures) {
+//        this.figures = figures;
+//    }
 }

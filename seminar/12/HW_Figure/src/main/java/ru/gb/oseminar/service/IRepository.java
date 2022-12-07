@@ -1,4 +1,4 @@
-package ru.gb.oseminar.model;
+package ru.gb.oseminar.service;
 
 import ru.gb.oseminar.data.Figure;
 
