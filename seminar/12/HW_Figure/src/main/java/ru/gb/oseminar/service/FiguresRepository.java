@@ -51,7 +51,4 @@ public class FiguresRepository implements IRepository {
         return figures;
     }
 
-//    public void setFigures(List<Figure> figures) {
-//        this.figures = figures;
-//    }
 }
