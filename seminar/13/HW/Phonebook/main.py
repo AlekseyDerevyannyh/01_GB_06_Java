@@ -1,16 +1,13 @@
-# This is a sample Python script.
+from model import user
+from model import contact
+from model import file_operation
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    contact1 = contact.Contact(user.User('Ivan', 'Ivanov', 'Ivanovich'), '+79311234567', '1')
+    print(contact1)
+    # user1 = user.User('Ivan', 'Ivanov', 'Ivanovich')
+    # print(user1)
+    file = file_operation.FileOperation('tst.csv')
+    # lines = ['1234', '5678']
+    # file.save_all_lines(lines)
+    print(file.read_all_lines())

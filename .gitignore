@@ -13,3 +13,4 @@ resources/
 webapp/
 examples/
 venv/
+__pycache__/
