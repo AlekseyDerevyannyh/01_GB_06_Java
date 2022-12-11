@@ -1,10 +1,7 @@
 package ru.gb.oseminar;
 
 import ru.gb.oseminar.controller.FigureController;
-import ru.gb.oseminar.data.Circle;
-import ru.gb.oseminar.data.Rectangle;
-import ru.gb.oseminar.data.Square;
-import ru.gb.oseminar.service.FiguresRepository;
+
 
 import java.util.logging.Logger;
 
