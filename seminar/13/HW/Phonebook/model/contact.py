@@ -24,4 +24,4 @@ class Contact:
 
     def __str__(self):
         return 'ID: ' + self.__contact_id + '. ' + \
-            str(self.__user) + '. тел: ' + self.__phone
+            str(self.__user) + '. Phone: ' + self.__phone

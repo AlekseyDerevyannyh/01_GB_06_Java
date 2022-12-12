@@ -43,3 +43,25 @@ class Repository:
             lines.append(self.__mapper.map_to_str(_contact))
         if isinstance(self.__file_operation, file_operation.FileOperation):
             self.__file_operation.save_all_lines(lines)
+
+    def find_contact(self, contact_id, contacts):
+        for _contact in contacts:
+            # print(_contact)
+            if isinstance(_contact, contact.Contact):
+                # print(_contact.get_id())
+                if _contact.get_id() == contact_id:
+                    return _contact
+        print('Contact not found!')
+
+    def delete_contact(self, contact_id):
+        contacts = Repository.get_all_contact(self)
+        if Repository.find_contact(self, contact_id, contacts) in contacts:
+            contacts.remove(Repository.find_contact(self, contact_id, contacts))
+            Repository.save_contacts(self, contacts)
+            print('Done')
+
+    def edit_contact(self, _contact):
+        if isinstance(_contact, contact.Contact):
+            Repository.delete_contact(self, _contact.get_id())
+        contacts = Repository.get_all_contact(self)
+        Repository.save_contact(self, _contact, contacts)

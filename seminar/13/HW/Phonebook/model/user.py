@@ -23,5 +23,5 @@ class User:
         return self.__patronymic
 
     def __str__(self):
-        return 'ФИО: ' + self.__last_name + ' ' \
+        return 'Full name: ' + self.__last_name + ' ' \
             + self.__first_name + ' ' + self.__patronymic
