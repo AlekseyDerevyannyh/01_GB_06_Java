@@ -15,7 +15,7 @@ class FileOperation:
 
     def save_all_lines(self, lines):
         try:
-            with open(self.__filename, 'a') as data:
+            with open(self.__filename, 'w') as data:
                 for line in lines:
                     data.write(f'{line}\n')
         except IOError:

@@ -17,25 +17,25 @@ class Repository:
         return contacts
 
     def get_max_id(self, contacts):
-        id = 0
+        contact_id = 0
         for _contact in contacts:
             if isinstance(_contact, contact.Contact):
-                if int(_contact.get_id()) > id:
-                    id = int(_contact.get_id())
-        return id
+                if int(_contact.get_id()) > contact_id:
+                    contact_id = int(_contact.get_id())
+        return contact_id
 
     def create_contact(self, _contact):
         contacts = Repository.get_all_contact(self)
-        id = Repository.get_max_id(self, contacts)
-        id += 1
+        contact_id = Repository.get_max_id(self, contacts)
+        contact_id += 1
         if isinstance(_contact, contact.Contact):
-            _contact.set_id(id)
-        Repository.save_contact(_contact, contacts)
-        return str(id)
+            _contact.set_id(contact_id)
+        Repository.save_contact(self, _contact, contacts)
+        return str(contact_id)
 
     def save_contact(self, _contact, contacts):
         contacts.append(_contact)
-        Repository.save_contacts(contacts)
+        Repository.save_contacts(self, contacts)
 
     def save_contacts(self, contacts):
         lines = []
