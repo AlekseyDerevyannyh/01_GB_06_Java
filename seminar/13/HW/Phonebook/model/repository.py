@@ -46,9 +46,7 @@ class Repository:
 
     def find_contact(self, contact_id, contacts):
         for _contact in contacts:
-            # print(_contact)
             if isinstance(_contact, contact.Contact):
-                # print(_contact.get_id())
                 if _contact.get_id() == contact_id:
                     return _contact
         print('Contact not found!')
