@@ -17,17 +17,18 @@ public class Main {
             System.out.println("Введите данные пользователя: ");
             String inputString = iScanner.nextLine();
             System.out.println(main.checkInputString(inputString));
-//            int a = Integer.parseInt(inputString);
         } catch (Exception e) {
             System.out.println("Ошибка ввода!");
             e.printStackTrace();
         }
+
         try {
-            System.out.println(main.checkYear("2022"));
+            main.checkYear("2022");
         } catch (DateFormatException e) {
 //            System.out.println(e.getMessage());
             e.printStackTrace();
         }
+        System.out.println(main.isNumeric("1"));
 
     }
 
@@ -42,21 +43,29 @@ public class Main {
         return errorCode;
     }
 
-    public Boolean checkBirthDate(String birthDateString) throws DateFormatException{
+    public void checkBirthDate(String birthDateString) throws DateFormatException {
         String[] birthDateData = birthDateString.split(".");
         if (birthDateData.length != NUMBER_OF_DATE_DATA_FIELDS) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): количество полей, разделённых точкой (.), не равно трём!");
-        } else if (birthDateData[0].length() != DAY_FIELD_SIZE) {
-            throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля день (dd) не равна двум!");
-        } else if (birthDateData[1].length() != MONTH_FIELD_SIZE) {
-            throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля месяц (mm) не равна двум!");
-        } else if (birthDateData[2].length() != YEAR_FIELD_SIZE) {
-            throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля год (yyyy) не равна четырём!");
         }
-        return true;
+        checkDay(birthDateData[0]);
+        checkMonth(birthDateData[1]);
+        checkYear(birthDateData[2]);
     }
 
-    public Boolean checkDay(String day) throws DateFormatException {
+    public void checkPhone(String phone) throws DateFormatException {
+        if (!isNumeric(phone)) {
+            throw new DateFormatException("Неверный формат телефонного номера: номер телефона должен состоять только из цифр");
+        }
+    }
+
+    public void checkSex(String sex) throws DateFormatException {
+        if (!sex.equals("f") && !sex.equals("m")) {
+            throw new DateFormatException("Неверный формат пола: должен быть 'f' или 'm'");
+        }
+    }
+
+    public void checkDay(String day) throws DateFormatException {
         if (day.length() != DAY_FIELD_SIZE) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля день (dd) не равна двум!");
         }
@@ -66,9 +75,8 @@ public class Main {
         if (Integer.parseInt(day) < 1 || Integer.parseInt(day) > 31) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): поле день (dd) должно быть от 01 до 31");
         }
-        return true;
     }
-    public Boolean checkMonth(String month) throws DateFormatException {
+    public void checkMonth(String month) throws DateFormatException {
         if (month.length() != MONTH_FIELD_SIZE) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля месяц (mm) не равна двум!");
         }
@@ -78,10 +86,9 @@ public class Main {
         if (Integer.parseInt(month) < 1 || Integer.parseInt(month) > 12) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): поле месяц (mm) должно быть от 01 до 12");
         }
-        return true;
     }
 
-    public Boolean checkYear(String year) throws DateFormatException {
+    public void checkYear(String year) throws DateFormatException {
         if (year.length() != YEAR_FIELD_SIZE) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): длина поля год (yyyy) не равна двум!");
         }
@@ -89,11 +96,9 @@ public class Main {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): поле год (yyyy) должно быть числом!");
         }
         LocalDate localDate = LocalDate.now();
-
-        if (Integer.parseInt(year) < 0 || Integer.parseInt(year) > localDate.getYear()) {
+        if (Integer.parseInt(year) > localDate.getYear()) {
             throw new DateFormatException("Неверный формат даты (dd.mm.yyyy): поле год (yyyy) должно быть от 0000 до " + localDate.getYear());
         }
-        return true;
     }
 
     public Boolean isNumeric(String str) {
