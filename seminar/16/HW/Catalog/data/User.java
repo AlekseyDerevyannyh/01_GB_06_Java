@@ -17,6 +17,14 @@ public class User {
         this.sex = sex;
     }
 
+    @Override
+    public String toString() {
+        return "ФИО: " + lastName + " " + firstName + " " + patronymic +
+                ". Дата рождения: " + birthDate +
+                ". Телефон: " + phone +
+                ". Пол: " + sex;
+    }
+
     public String getLastName() {
         return lastName;
     }
