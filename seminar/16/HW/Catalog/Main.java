@@ -29,6 +29,9 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println(main.isNumeric("1"));
+        String line = "";
+        line = line.substring(1, line.length() - 1);
+        System.out.println("'" + line + "'");
 
     }
 
