@@ -50,4 +50,12 @@ public class FileOperation {
             e.printStackTrace();
         }
     }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 }
