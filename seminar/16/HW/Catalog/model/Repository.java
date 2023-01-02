@@ -12,8 +12,9 @@ public class Repository {
         this.fileOperation = fileOperation;
     }
 
-    public void createUser(String lastName, String firstName, String patronymic, String birthDate, Long phone, Character sex) {
-        users.add(new User(lastName, firstName, patronymic, birthDate, phone, sex));
+    public void createUser(User user) {
+        List<User> users = this.getUsersWithLastName(user.getLastName());
+        this.saveUser(user, users);
     }
 
     public List<User> getUsersWithLastName(String lastName) {
