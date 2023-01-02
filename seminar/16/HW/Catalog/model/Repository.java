@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Repository {
@@ -15,5 +16,35 @@ public class Repository {
         users.add(new User(lastName, firstName, patronymic, birthDate, phone, sex));
     }
 
-    public void saveUser()
+    public List<User> getUsersWithLastName(String lastName) {
+        this.fileOperation.setFileName(lastName);
+        List<String> lines = this.fileOperation.readAllLines();
+        List<User> users = new ArrayList();
+        Iterator iterator = lines.iterator();
+
+        while(iterator.hasNext()) {
+            String line = (String)iterator.next();
+            users.add(this.mapper.map(line));
+        }
+        return users;
+    }
+    public void saveUser(User user, List<User> users) {
+        users.add(user);
+        this.saveUsers(users);
+    }
+
+    private void saveUsers(List<User> users) {
+        if (users.isEmpty()) {
+            return;
+        }
+        List<String> lines = new ArrayList();
+        Iterator iterator = users.iterator();
+
+        while(iterator.hasNext()) {
+            User item = (User)iterator.next();
+            lines.add(this.mapper.map(item));
+        }
+        this.fileOperation.setFileName(users.get(0).getLastName());
+        this.fileOperation.saveAllLines(lines);
+    }
 }
