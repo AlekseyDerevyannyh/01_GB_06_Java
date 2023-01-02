@@ -7,15 +7,6 @@ import java.util.List;
 public class FileOperation {
     private String fileName;
 
-    public FileOperation(String fileName) {
-        this.fileName = fileName;
-        try (FileWriter writer = new FileWriter(fileName, true)) {
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public List<String> readAllLines() {
         List<String> lines = new ArrayList<>();
         try {
@@ -57,5 +48,10 @@ public class FileOperation {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+        try (FileWriter writer = new FileWriter(fileName, true)) {
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import exception.FileReadException;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,12 +22,16 @@ public class Repository {
     public List<User> getUsersWithLastName(String lastName) {
         this.fileOperation.setFileName(lastName);
         List<String> lines = this.fileOperation.readAllLines();
-        List<User> users = new ArrayList();
+        List<User> users = new ArrayList<>();
         Iterator iterator = lines.iterator();
 
         while(iterator.hasNext()) {
             String line = (String)iterator.next();
-            users.add(this.mapper.map(line));
+            try {
+                users.add(this.mapper.map(line));
+            } catch (FileReadException e) {
+                e.printStackTrace();
+            }
         }
         return users;
     }
@@ -38,7 +44,7 @@ public class Repository {
         if (users.isEmpty()) {
             return;
         }
-        List<String> lines = new ArrayList();
+        List<String> lines = new ArrayList<>();
         Iterator iterator = users.iterator();
 
         while(iterator.hasNext()) {
